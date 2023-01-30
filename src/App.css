@@ -36,3 +36,24 @@
     transform: rotate(360deg);
   }
 }
+
+.baseButton {
+  color: white;
+  margin: 16px;
+  padding: 0.8rem;
+  border-radius: 0.4rem;
+  cursor: pointer;
+}
+
+.likeButton {
+  background-color: rgb(231, 76, 60);
+}
+
+.dynamicButton {
+  background-color: #007FB1;
+}
+
+.buttonContainer {
+  display: flex;
+  justify-content: center;
+}

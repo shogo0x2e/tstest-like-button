@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import logo from './logo.svg';
 import './App.css';
 
@@ -6,20 +6,48 @@ function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+        <div className="buttonContainer">
+          <LikeButton />
+          <DynamicButton />
+        </div>
       </header>
     </div>
+  );
+}
+
+/**
+ * チュートリアルにあったボタン
+ */
+function LikeButton() {
+  const [count, setCount] = useState(999);
+  const handleClick = () => {
+    setCount(count + 1);
+  };
+  return (
+    <span className='baseButton likeButton' onClick={handleClick}>
+      🤍 {count}
+    </span>
+  );
+}
+
+/**
+ * 自作ボタン
+ */
+function DynamicButton() {
+  const [content, setContent] = useState("まだ押されてないよーん");
+
+  const handleClick = () => {
+    let change = "まだ押されてないよーん";
+    if (content == change) {
+      change = "押されたよ！戻す！？";
+    }
+    setContent(change);
+  };
+
+  return (
+    <span className='baseButton dynamicButton' onClick={handleClick}>
+      {content}
+    </span>
   );
 }
 
